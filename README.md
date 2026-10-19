@@ -31,8 +31,15 @@ Not production-tested. MIT licensed.
 
 ## Where the lists are served
 
-Once published, every 30 minutes at `https://enovamaker.github.io/tor-relay-lists/<name>.txt`
-(GitHub Pages, built by `.github/workflows/publish.yml`). If the consensus cannot be fetched or
-looks implausibly small, the job fails and the previous lists stay up.
+Every 30 minutes, at the repository root, under the same file names the older service used:
 
-Used by [`nixos-tor-anti-dos`](https://github.com/EnovaMaker/nixos-tor-anti-dos) (`lists.enable`).
+```
+https://raw.githubusercontent.com/EnovaMaker/tor-relay-lists/main/guards.txt
+```
+
+**Moving from the older service: change the owner in the URL, nothing else.**
+(`Enkidu-6` -> `EnovaMaker`.) A run that cannot fetch the consensus, or finds it implausibly
+small, fails and leaves the previous lists in place.
+
+Used by [`nixos-tor-anti-dos`](https://github.com/EnovaMaker/nixos-tor-anti-dos) (`lists.enable`)
+and by [`tor-ddos-compat`](https://github.com/EnovaMaker/tor-ddos-compat).

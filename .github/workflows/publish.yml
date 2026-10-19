@@ -4,25 +4,23 @@ on:
     - cron: "7,37 * * * *"   # every 30 minutes; the consensus changes hourly
   workflow_dispatch:
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 concurrency:
-  group: pages
+  group: publish
   cancel-in-progress: false
 jobs:
   publish:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - run: python3 -m unittest
-      - run: python3 tor_relay_lists.py --out site
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: site
-      - id: deploy
-        uses: actions/deploy-pages@v4
+      # Written to the repository root, so a list lives at the same path the older
+      # service used: only the owner in the URL changes.
+      - run: python3 tor_relay_lists.py --out .
+      - name: Commit if the lists changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- '*.txt'
+          # The header carries the consensus time, which changes hourly.
+          git diff --cached --quiet || { git commit -qm "updated $(date -u +%H:%M:%S) UTC" && git push; }
