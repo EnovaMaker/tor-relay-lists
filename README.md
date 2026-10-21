@@ -5,6 +5,8 @@
 Independent reimplementation, written from the public Tor directory specification and from the
 file names and layout that relay operators already use. No code from any other project.
 
+The older service, [`Enkidu-6/tor-relay-lists`](https://github.com/Enkidu-6/tor-relay-lists), last published on 1 May 2026.
+
 ```sh
 python3 tor_relay_lists.py --out out/        # newest consensus from CollecTor
 ```
