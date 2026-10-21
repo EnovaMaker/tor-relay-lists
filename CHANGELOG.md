@@ -1,6 +1,6 @@
 # Changelog
 
-Dates are commit dates. The list files are regenerated automatically every 30 minutes; those commits are not listed here.
+Dates are commit dates. The list files are regenerated automatically on a schedule (see the README for the observed interval); those commits are not listed here.
 
 ## 2026-10-19
 - First version: relay address lists rebuilt from the Tor consensus.
