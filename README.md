@@ -27,19 +27,19 @@ Checked on 19 Oct 2026 against a snapshot of an older, now-stopped list service 
 30 Apr 2026 (the consensuses on either side of it): **98–100 %** of its addresses appear in the
 matching list here. The remaining 1–2 % is ordinary churn between consensuses.
 
-**Not yet covered:** overloaded relays, and Snowflake servers (the consensus does not carry either).
+**Not yet covered:** overloaded relays (`overloaded.txt`), Snowflake servers, and `dual-or.txt` / `dual-or-v6.txt`, which the older service's own README did not document. Overload information is published in relay descriptors, not as a list, and Snowflake proxies are not relays in the consensus.
 
 Not production-tested. MIT licensed.
 
 ## Where the lists are served
 
-Regenerated automatically from the Tor consensus, at the repository root, under the same file names the older service used. The schedule asks for every 30 minutes, but GitHub's scheduler is best-effort and ran about every 4 to 5 hours in October 2026 (measured 19-21 Oct). The `Updated:` line in each file shows the consensus time it was built from:
+Regenerated automatically from the Tor consensus, at the repository root, under the file names the older service used, except those listed under *Not yet covered*. The schedule asks for every 30 minutes, but GitHub's scheduler is best-effort and ran between about 2 and 6 hours apart in October 2026 (measured 19-22 Oct). The `Updated:` line in each file shows the consensus time it was built from:
 
 ```
 https://raw.githubusercontent.com/EnovaMaker/tor-relay-lists/main/guards.txt
 ```
 
-**Moving from the older service: change the owner in the URL, nothing else.**
+**Moving from the older service: change the owner in the URL, for any file in the table above.**
 (`Enkidu-6` -> `EnovaMaker`.) A run that cannot fetch the consensus, or finds it implausibly
 small, fails and leaves the previous lists in place.
 
