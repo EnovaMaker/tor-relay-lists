@@ -33,7 +33,7 @@ Not production-tested. MIT licensed.
 
 ## Where the lists are served
 
-Regenerated automatically from the Tor consensus, at the repository root, under the file names the older service used, except those listed under *Not yet covered*. The schedule asks for every 30 minutes, but GitHub's scheduler is best-effort: runs came between about 2 and 6 hours apart in October 2026 (measured 19-22 Oct) and up to about 7.5 hours apart in November (measured 21-22 Nov). The `Updated:` line in each file shows the consensus time it was built from:
+Regenerated automatically from the Tor consensus, at the repository root, under the file names the older service used, except those listed under *Not yet covered*. The schedule asks for every 30 minutes, but GitHub's scheduler is best-effort: runs came between about 2 and 6 hours apart in October 2026 (measured 19-22 Oct) and up to about 8.5 hours apart in November (measured 21-22 Nov). The `Updated:` line in each file shows the consensus time it was built from:
 
 ```
 https://raw.githubusercontent.com/EnovaMaker/tor-relay-lists/main/guards.txt
